@@ -14,7 +14,7 @@ export const metadata = {
 const navbar = (
   <Navbar
     logo={<span style={{ fontWeight: 700 }}>Claude Code for Solopreneurs</span>}
-    projectLink="https://github.com/your-username/solopreneur-ai-staff"
+    projectLink="https://github.com/pollymallen/solopreneur-ai-staff"
   />
 )
 
@@ -37,7 +37,7 @@ export default async function RootLayout({
           navbar={navbar}
           footer={footer}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/your-username/solopreneur-ai-staff"
+          docsRepositoryBase="https://github.com/pollymallen/solopreneur-ai-staff"
           sidebar={{ defaultMenuCollapseLevel: 1, toggleButton: true }}
           toc={{ backToTop: true }}
           editLink={null}
