@@ -1,0 +1,154 @@
+# CLAUDE.md & Project Memory
+
+The secret to making AI feel like "staff" instead of "tool" is **persistent memory**. CLAUDE.md is how you give Claude Code that memory.
+
+---
+
+## What is CLAUDE.md?
+
+CLAUDE.md is a special file that Claude Code reads automatically at the start of every session. Think of it as:
+
+- Your business's "employee handbook" for AI
+- Context that carries across conversations
+- The shared brain for all your agents
+
+When you open Claude Code in a folder containing CLAUDE.md, it reads it first - before you say anything.
+
+---
+
+## Why This Matters
+
+Without CLAUDE.md:
+```
+You: "Write an email to a client"
+Claude: "Sure! What's your business? What tone should I use? What's the context?"
+```
+
+With CLAUDE.md:
+```
+You: "Write an email to a client about our coaching program"
+Claude: [Already knows your business, tone, program details - just writes the email]
+```
+
+The difference is **leverage**. You're not re-explaining context every time.
+
+---
+
+## Anatomy of a Good CLAUDE.md
+
+Open your starter repo's CLAUDE.md. Here's what each section does:
+
+### Business Overview
+
+```markdown
+**Business Name:** Clarity Coaching
+**What You Do:** Help overwhelmed entrepreneurs create systems for sustainable growth
+**Target Audience:** Solopreneurs making $100k-$500k who want to scale without burning out
+**Core Offer:** 12-week 1:1 coaching program ($5,000)
+```
+
+This context shapes every response. An email about your "coaching program" will automatically reference the right details.
+
+### Brand Voice
+
+```markdown
+**Tone:** Professional but warm - like a trusted mentor
+**Personality:** Calm, confident, occasionally playful
+**Words to Use:** "sustainable," "clarity," "systems," "freedom"
+**Words to Avoid:** "hustle," "grind," "crush it," "killing it"
+```
+
+Now every piece of content sounds like *you* wrote it.
+
+### Key Context
+
+```markdown
+- We use Kajabi for courses and email
+- Podcast publishes every Tuesday
+- Currently launching new group program in Q2
+```
+
+Operational details that affect recommendations and content.
+
+---
+
+## Exercise: Fill In Your CLAUDE.md
+
+Open your starter repo and edit CLAUDE.md with your actual business details.
+
+Start with just the basics:
+
+1. **Business Overview** - Who you are and what you do
+2. **Brand Voice** - How you communicate
+3. **One key fact** - Something important Claude should always remember
+
+Don't overthink it. You can add more later. The goal is to get *something* in there.
+
+---
+
+## Testing Your Memory
+
+After editing CLAUDE.md, restart Claude Code and try:
+
+```
+Based on my CLAUDE.md, describe my business in one sentence.
+```
+
+Claude should accurately describe your business. If it doesn't, your CLAUDE.md needs more clarity.
+
+Then try:
+
+```
+Write a welcome email to a new subscriber
+```
+
+Notice how it uses your brand voice without being asked.
+
+---
+
+## Advanced: Multiple CLAUDE.md Files
+
+You can have CLAUDE.md files in different folders for different contexts:
+
+```
+/solopreneur-ai-staff/
+  CLAUDE.md                    # Global context
+  /agents/executive-assistant/
+    CLAUDE.md                  # EA-specific instructions
+  /projects/podcast/
+    CLAUDE.md                  # Podcast-specific context
+```
+
+Claude Code reads the CLAUDE.md in the folder you're in, plus any in parent folders.
+
+---
+
+## Common Mistakes
+
+### Too vague
+❌ "We help people with business stuff"
+✅ "We help service-based solopreneurs price their offers confidently"
+
+### Too long
+❌ 10 pages of every detail about your business
+✅ The essential context needed for most tasks (1-2 pages max)
+
+### Never updated
+❌ Set it once and forget it
+✅ Update when your business evolves
+
+---
+
+## Key Takeaway
+
+CLAUDE.md is the foundation of your AI staff. A well-crafted CLAUDE.md means:
+
+- Less explaining, more doing
+- Consistent voice across all agents
+- Context that compounds over time
+
+Time invested here pays dividends in every future interaction.
+
+---
+
+[**Next: Basic Commands →**](./basic-commands)

@@ -1,0 +1,341 @@
+# Custom Commands
+
+Custom commands are the magic that turns Claude Code from "AI tool" into "trained staff."
+
+---
+
+## What Are Custom Commands?
+
+Custom commands are shortcuts that:
+- Load specific instructions
+- Set context automatically
+- Accept your input as parameters
+- Produce consistent output
+
+Instead of explaining what you want every time:
+```
+Read my CLAUDE.md, then read the EA README, then draft an email
+following these guidelines...
+```
+
+You just type:
+```
+/ea-email Sarah Chen - follow up on coaching call
+```
+
+---
+
+## How Custom Commands Work
+
+Commands are markdown files in `.claude/commands/`. The file name becomes the command.
+
+```
+.claude/
+└── commands/
+    ├── ea-email.md       →  /ea-email
+    ├── ea-research.md    →  /ea-research
+    └── ea-meeting-prep.md →  /ea-meeting-prep
+```
+
+When you run `/ea-email`, Claude Code:
+1. Reads the command file
+2. Replaces `$ARGUMENTS` with whatever you typed after the command
+3. Executes the instructions
+
+---
+
+## Anatomy of a Command File
+
+Let's break down `/ea-email`:
+
+```markdown
+# EA Email Command
+
+You are acting as the Executive Assistant agent.
+Your task is to draft a professional email.
+
+## Instructions
+
+1. First, read `/CLAUDE.md` for business context
+2. Read `/agents/executive-assistant/README.md` for guidelines
+3. Draft the email following the rules below
+
+## Email Drafting Rules
+
+- Provide 2-3 versions: Short, Medium, Detailed
+- Match formality to relationship
+- End with clear next step
+- Write specific subject lines
+
+## Input
+
+$ARGUMENTS
+
+If no arguments provided, ask:
+1. Who is the recipient?
+2. What is the purpose?
+
+## Output Format
+
+[Template for consistent output]
+
+## Boundaries
+
+- Do NOT send the email
+- Do NOT make commitments
+```
+
+### Key Parts
+
+| Section | Purpose |
+|---------|---------|
+| Role statement | "You are acting as..." sets the persona |
+| Instructions | Step-by-step what to do |
+| Rules | How to do it well |
+| `$ARGUMENTS` | Where your input goes |
+| Output format | Consistent structure |
+| Boundaries | What NOT to do |
+
+---
+
+## Exercise: Create Your First Custom Command
+
+Let's create a command from scratch.
+
+### Step 1: Identify a Repeatable Task
+
+Think of something you do often that could be templated:
+- Weekly newsletter draft
+- Client check-in email
+- Social media caption
+- Meeting notes summary
+
+### Step 2: Write the Command File
+
+Create `.claude/commands/[your-task].md`:
+
+```markdown
+# [Task Name] Command
+
+You are acting as [appropriate agent/role].
+Your task is to [what this command does].
+
+## Instructions
+
+1. Read `/CLAUDE.md` for context
+2. [Step 2]
+3. [Step 3]
+
+## Rules
+
+- [Rule 1]
+- [Rule 2]
+
+## Input
+
+$ARGUMENTS
+
+If no arguments provided, ask:
+1. [What you need to know]
+
+## Output Format
+
+[How the output should be structured]
+```
+
+### Step 3: Test It
+
+```
+/[your-command] [test input]
+```
+
+Does it work? What needs adjusting?
+
+---
+
+## Your EA Commands (Pre-Built)
+
+Check your starter repo - these are ready to use:
+
+### /ea-email
+```
+/ea-email
+Recipient: [name, context]
+Purpose: [what you want to accomplish]
+```
+
+### /ea-research
+```
+/ea-research
+Topic: [what to research]
+Goal: [why you need this]
+```
+
+### /ea-meeting-prep
+```
+/ea-meeting-prep
+Meeting: [who and what]
+Goal: [desired outcome]
+```
+
+---
+
+## Command Design Patterns
+
+### Pattern 1: The Transformer
+
+Takes one thing, produces another.
+
+```markdown
+# Transform Command
+
+Take $ARGUMENTS and transform it into [output format].
+
+## Input
+[Raw content, notes, ideas]
+
+## Output
+[Polished version in specific format]
+```
+
+**Examples:**
+- Voice notes → bullet points
+- Meeting notes → action items
+- Ideas → outline
+
+### Pattern 2: The Generator
+
+Creates something from minimal input.
+
+```markdown
+# Generate Command
+
+Generate [type of content] about $ARGUMENTS.
+
+## Parameters
+- Length: [specification]
+- Tone: [from CLAUDE.md]
+- Format: [template]
+```
+
+**Examples:**
+- Generate social post
+- Generate email sequence
+- Generate FAQ entries
+
+### Pattern 3: The Analyzer
+
+Examines something and provides insights.
+
+```markdown
+# Analyze Command
+
+Analyze $ARGUMENTS and provide:
+1. Summary
+2. Key insights
+3. Recommendations
+```
+
+**Examples:**
+- Analyze competitor website
+- Analyze email thread
+- Analyze sales call notes
+
+---
+
+## Pro Tips for Commands
+
+### 1. Always Reference Context
+
+```markdown
+## Instructions
+1. First, read `/CLAUDE.md` for business context
+```
+
+This ensures your brand voice is applied.
+
+### 2. Handle Missing Arguments
+
+```markdown
+## Input
+$ARGUMENTS
+
+If no arguments provided, ask:
+1. [Question 1]
+2. [Question 2]
+```
+
+Makes commands usable even when you forget details.
+
+### 3. Define Output Clearly
+
+Vague output = inconsistent results.
+
+```markdown
+## Output Format
+
+```
+SUBJECT: [Specific subject]
+
+---
+
+## Version 1: Short
+[Content]
+
+## Version 2: Detailed
+[Content]
+
+---
+
+NOTES: [Context and suggestions]
+```
+```
+
+### 4. Include Boundaries
+
+```markdown
+## Boundaries
+
+- Do NOT [dangerous action]
+- Always [safety measure]
+- Flag if [escalation trigger]
+```
+
+---
+
+## Exercise: Build Your Command Library
+
+By the end of this module, you should have:
+
+- [ ] `/ea-email` - Working and tested
+- [ ] `/ea-research` - Working and tested
+- [ ] `/ea-meeting-prep` - Working and tested
+- [ ] At least 1 custom command you created
+
+Test each one with real tasks. Note what works and what needs improvement.
+
+---
+
+## Module 1 Complete!
+
+You now have:
+- ✅ A designed EA agent with clear context and boundaries
+- ✅ Email workflows that save you hours
+- ✅ Research workflows for any topic
+- ✅ Custom commands for instant access
+
+---
+
+## What's Next
+
+In Module 2, you'll build your **Customer Success agent** - handling support, FAQs, and customer communications.
+
+But first, spend a few days actually using your EA. The more you use it, the more you'll know what to improve.
+
+**Homework:**
+1. Use `/ea-email` for 5 real emails this week
+2. Use `/ea-research` before your next important meeting
+3. Note what worked and what needs adjustment
+4. Update your CLAUDE.md based on learnings
+
+[**Continue to Module 2: Customer Success →**](/module-2)

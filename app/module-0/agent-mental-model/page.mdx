@@ -1,0 +1,194 @@
+# The Agent Mental Model
+
+This is the most important lesson in Module 0. Everything else builds on this mindset shift.
+
+---
+
+## The Shift: Assistant → Agent
+
+Most people use AI like this:
+
+> "AI, help me write an email"
+> [AI gives suggestions]
+> [Human edits, copies, pastes, sends]
+
+This is the **assistant model**. AI suggests, you do.
+
+The agent model flips this:
+
+> "Email agent: check my inbox, draft responses to anything urgent, save drafts for my review"
+> [Agent reads emails, writes drafts, organizes them]
+> [Human reviews and approves]
+
+This is the **agent model**. You direct, AI does.
+
+---
+
+## Why This Matters for Solopreneurs
+
+As a solopreneur, you're bottlenecked. There's more work than hours.
+
+The assistant model doesn't solve this - it just makes you slightly faster at doing the work yourself.
+
+The agent model *actually* delegates. The work gets done whether you're in the loop or not.
+
+---
+
+## The Components of an Agent
+
+Every agent in your AI staff has:
+
+### 1. Context (CLAUDE.md)
+What does this agent know? Your business, voice, preferences.
+
+### 2. Instructions (Agent README)
+What is this agent *for*? What tasks does it handle?
+
+### 3. Tools (Commands)
+What shortcuts exist for common tasks?
+
+### 4. Boundaries
+What does this agent NOT do? When should it escalate to you?
+
+---
+
+## Example: Executive Assistant Agent
+
+Let's see these components in action:
+
+### Context
+```markdown
+# From CLAUDE.md
+- Mary runs Clarity Coaching
+- Professional but warm brand voice
+- Uses Kajabi for email
+- Prefers concise communication
+```
+
+### Instructions
+```markdown
+# From /agents/executive-assistant/README.md
+You handle:
+- Email drafting
+- Research tasks
+- Meeting preparation
+- Data organization
+
+You don't:
+- Send emails without approval
+- Make commitments on Mary's behalf
+- Access sensitive financial files
+```
+
+### Tools
+```
+/ea-email - Draft an email
+/ea-research - Research a topic
+/ea-prep - Prepare for a meeting
+```
+
+### Boundaries
+```markdown
+Always save as draft, never send directly
+Flag anything requiring strategic decisions
+Ask for clarification if recipient relationship is unclear
+```
+
+---
+
+## Building Your Agent Roster
+
+Think of your agents like a startup team:
+
+| Role | Handles | Escalates |
+|------|---------|-----------|
+| **Executive Assistant** | Admin tasks | Calendar conflicts, sensitive relationships |
+| **Customer Success** | Support tickets | Refund requests, complaints |
+| **Audience Intelligence** | Research | Strategic implications |
+| **Content Team** | Content creation | Brand-sensitive topics, controversy |
+| **Marketing Strategist** | Campaign planning | Budget decisions, partnerships |
+
+Each agent has a clear domain. Overlaps are intentional - Content Creator checks with Audience Intelligence before writing.
+
+---
+
+## The Hierarchy
+
+Later in the course, we'll build agent hierarchies:
+
+```
+You (CEO)
+  └── Marketing Strategist (makes decisions)
+        └── Content Strategist (plans)
+              └── Content Creator (executes)
+        └── Audience Intelligence (researches)
+  └── Executive Assistant (admin)
+  └── Customer Success (support)
+```
+
+Strategic agents direct operational agents. You direct strategic agents.
+
+This is Module 5-6 territory. For now, just understand the concept.
+
+---
+
+## Exercise: Define Your First Agent
+
+Before moving to Module 1, think about your Executive Assistant:
+
+1. **What tasks eat your time?**
+   - Email responses?
+   - Research?
+   - Scheduling prep?
+
+2. **What context does the agent need?**
+   - Your communication style?
+   - Key relationships?
+   - Recurring topics?
+
+3. **What should it NOT do?**
+   - Send without approval?
+   - Access certain files?
+   - Make promises?
+
+Write these answers somewhere - you'll use them in Module 1.
+
+---
+
+## Module 0 Complete!
+
+You now understand:
+- ✅ What Claude Code is and why it's different
+- ✅ How to install and authenticate
+- ✅ How CLAUDE.md creates persistent memory
+- ✅ Basic commands and workflows
+- ✅ The agent mental model
+
+---
+
+## What's Next
+
+In Module 1, you'll build your first real agent: the **Executive Assistant**.
+
+This is where theory becomes practice. You'll:
+- Design EA agent instructions
+- Create custom commands
+- Handle real email and research tasks
+- Experience the leverage of working with an agent
+
+[**Continue to Module 1: Executive Assistant →**](/module-1)
+
+---
+
+## Optional: Share Your CLAUDE.md
+
+Before moving on, make sure your CLAUDE.md is filled in with your actual business context. The rest of the course assumes this is done.
+
+If you're stuck, try this prompt in Claude Code:
+
+```
+Help me write my CLAUDE.md. Ask me questions about my business,
+then draft a complete CLAUDE.md for me.
+```
+
+Claude will interview you and create the file.

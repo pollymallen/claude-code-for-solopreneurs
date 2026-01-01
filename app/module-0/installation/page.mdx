@@ -1,0 +1,155 @@
+# Installation & Setup
+
+Let's get Claude Code running on your machine. This takes about 10 minutes.
+
+---
+
+## Prerequisites
+
+Before you start, you need:
+
+1. **Claude Pro or Max subscription** ($20/month)
+   - [Sign up at claude.ai](https://claude.ai) if you haven't
+   - This gives you API access needed for Claude Code
+
+2. **A terminal**
+   - **Mac**: Terminal app (pre-installed) or iTerm2
+   - **Windows**: PowerShell or Windows Terminal
+   - **Linux**: Any terminal
+
+3. **Node.js installed**
+   - Check if you have it: `node --version`
+   - If not, [download from nodejs.org](https://nodejs.org)
+
+---
+
+## Step 1: Install Claude Code
+
+Open your terminal and run:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+This installs Claude Code globally so you can use it anywhere.
+
+---
+
+## Step 2: Authenticate
+
+Run:
+
+```bash
+claude auth
+```
+
+This opens a browser window. Log in with your Claude account and authorize the CLI.
+
+---
+
+## Step 3: Verify Installation
+
+Run:
+
+```bash
+claude --version
+```
+
+You should see a version number. If you do, you're set!
+
+---
+
+## Step 4: Clone the Starter Repo
+
+Navigate to where you want to keep your AI staff project:
+
+```bash
+cd ~/Documents  # or wherever you prefer
+git clone https://github.com/your-username/solopreneur-ai-staff.git
+cd solopreneur-ai-staff
+```
+
+---
+
+## Step 5: Start Claude Code
+
+From inside your project folder:
+
+```bash
+claude
+```
+
+You should see Claude Code start up. Try saying:
+
+```
+Hi! Read the CLAUDE.md file and tell me what this project is about.
+```
+
+Claude should read the file and explain the AI staff concept.
+
+---
+
+## Troubleshooting
+
+### "command not found: claude"
+
+Node.js global packages aren't in your path. Try:
+```bash
+export PATH="$PATH:$(npm bin -g)"
+```
+
+Or reinstall with:
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+### "Authentication failed"
+
+Make sure you have an active Claude Pro or Max subscription. Free tier doesn't include API access.
+
+### "Permission denied"
+
+On Mac/Linux, you may need:
+```bash
+sudo npm install -g @anthropic-ai/claude-code
+```
+
+---
+
+## Your First Conversation
+
+Now that Claude Code is running, try these commands:
+
+```
+What files are in this project?
+```
+
+```
+Read the README.md and summarize it for me
+```
+
+```
+Create a file called test.txt with "Hello from Claude Code" inside
+```
+
+Notice how Claude Code actually creates the file - you can verify it exists!
+
+---
+
+## Key Concept: Project Context
+
+When you run `claude` inside a folder, Claude Code:
+
+1. Reads any `CLAUDE.md` file for context
+2. Can access all files in that folder
+3. Maintains conversation history for that session
+
+This is why we work inside the `solopreneur-ai-staff` folder - it gives Claude the context it needs.
+
+---
+
+## Next Up
+
+Now that Claude Code is running, let's learn about its most powerful feature: persistent memory through CLAUDE.md.
+
+[**Next: CLAUDE.md & Project Memory →**](./project-memory)

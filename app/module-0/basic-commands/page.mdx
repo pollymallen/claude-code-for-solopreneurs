@@ -1,0 +1,176 @@
+# Basic Commands
+
+Now that you understand CLAUDE.md, let's learn how to actually work with Claude Code day-to-day.
+
+---
+
+## Starting and Stopping
+
+### Start a session
+```bash
+claude
+```
+Run this inside your project folder.
+
+### End a session
+Type `exit` or press `Ctrl+C`
+
+### Clear conversation
+```
+/clear
+```
+Keeps the session but forgets the conversation. CLAUDE.md context is preserved.
+
+---
+
+## Working with Files
+
+### Read a file
+```
+Read the file /templates/email-response.md
+```
+
+Or simply:
+```
+What's in the templates folder?
+```
+
+Claude Code understands natural language.
+
+### Create a file
+```
+Create a file called notes.md with today's meeting notes: [your notes]
+```
+
+### Edit a file
+```
+In the file CLAUDE.md, add "Podcast publishes Tuesdays" to the Key Context section
+```
+
+### Find files
+```
+Find all markdown files in the agents folder
+```
+
+---
+
+## Getting Information
+
+### Research
+```
+Research the top 3 pain points for coaches who want to scale their business
+```
+
+### Summarize
+```
+Summarize the last 10 emails in my client-communications folder
+```
+
+### Analyze
+```
+Analyze my content-calendar.md and identify gaps in my content themes
+```
+
+---
+
+## Custom Commands (Slash Commands)
+
+You can create shortcuts for common tasks. These live in `.claude/commands/`.
+
+### Example: Email drafting command
+
+Create a file `.claude/commands/email.md`:
+
+```markdown
+# Email Command
+
+Draft a professional email based on these inputs:
+- Recipient: $RECIPIENT
+- Purpose: $PURPOSE
+
+Use my brand voice from CLAUDE.md. Provide 2 versions: short and detailed.
+```
+
+Now you can use:
+```
+/email to: Sarah, purpose: follow up on coaching discovery call
+```
+
+We'll build custom commands for each agent in later modules.
+
+---
+
+## Useful Built-in Commands
+
+| Command | What it does |
+|---------|--------------|
+| `/help` | Show available commands |
+| `/clear` | Clear conversation history |
+| `/compact` | Summarize conversation to save context |
+| `/cost` | Show token usage for session |
+
+---
+
+## Approval Prompts
+
+Claude Code asks for permission before:
+- Creating or modifying files
+- Running terminal commands
+- Accessing external resources
+
+You'll see prompts like:
+```
+Claude wants to create file: notes.md
+[Allow] [Deny] [Allow All]
+```
+
+**Tip:** "Allow All" for a session if you're doing trusted work. Always review what Claude is creating.
+
+---
+
+## Tips for Effective Prompts
+
+### Be specific about output
+❌ "Write some content"
+✅ "Write a LinkedIn post about [topic], 150 words, conversational tone"
+
+### Reference your context
+❌ "Write in my brand voice"
+✅ "Using the brand voice from CLAUDE.md, write..."
+
+### Give examples
+❌ "Make it good"
+✅ "Here's an example of the style I like: [example]"
+
+### Chain tasks
+```
+First, read my latest blog post. Then, create 5 Twitter threads from it. Save each as a separate file in /content/twitter/
+```
+
+---
+
+## Exercise: Basic Workflow
+
+Try this complete workflow:
+
+1. **Start Claude Code** in your starter repo
+2. **Ask Claude to read** your CLAUDE.md
+3. **Create a file**: "Create a file called practice/first-email.md with a welcome email to a new subscriber"
+4. **Edit it**: "Make the email more casual and add a PS about my podcast"
+5. **Review the result**
+
+You just completed your first full Claude Code workflow!
+
+---
+
+## What's Next
+
+You now know how to:
+- Start Claude Code with context
+- Work with files
+- Use basic commands
+- Craft effective prompts
+
+The last piece is the most important: thinking about Claude as an *agent* rather than an *assistant*.
+
+[**Next: The Agent Mental Model →**](./agent-mental-model)

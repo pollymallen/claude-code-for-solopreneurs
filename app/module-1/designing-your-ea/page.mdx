@@ -1,0 +1,189 @@
+# Designing Your EA
+
+Before we write any commands, let's think through what makes a good Executive Assistant agent.
+
+---
+
+## The Design Framework
+
+Every agent needs four things:
+
+| Component | Question to Answer |
+|-----------|-------------------|
+| **Context** | What does this agent need to know? |
+| **Capabilities** | What tasks can it handle? |
+| **Constraints** | What should it NOT do? |
+| **Communication** | How should it interact with you? |
+
+Let's work through each for your EA.
+
+---
+
+## Context: What Does Your EA Need to Know?
+
+Your EA needs access to:
+
+### From CLAUDE.md (already set up)
+- Your business description
+- Your brand voice and tone
+- Key facts about your work
+
+### EA-Specific Context
+Things that help with administrative tasks:
+
+```markdown
+## EA Context
+
+### Key Relationships
+- [Client name] - Current coaching client, high-touch
+- [Partner name] - Referral partner, informal tone
+- [Vendor name] - Keep professional
+
+### Common Topics
+- 12-week coaching program ($5,000)
+- Group program launching Q2
+- Podcast publishes Tuesdays
+
+### Scheduling Preferences
+- No meetings before 10am
+- Discovery calls are 30 min
+- Client sessions are 60 min
+```
+
+**Exercise:** Add an "EA Context" section to your CLAUDE.md with 3-5 key relationships and common topics.
+
+---
+
+## Capabilities: What Can Your EA Do?
+
+Start with tasks that are:
+- **Repetitive** - You do them often
+- **Low-stakes** - Easy to review and correct
+- **Time-consuming** - Worth automating
+
+### Good EA Tasks
+
+| Task | Why It Works |
+|------|--------------|
+| Email drafting | Repetitive, low-risk, easy to review |
+| Research | Time-consuming, structured output |
+| Meeting prep | Repetitive format, high value |
+| Data formatting | Tedious, low judgment needed |
+
+### Bad EA Tasks (For Now)
+
+| Task | Why It Doesn't Work |
+|------|---------------------|
+| Sending emails | No undo if wrong |
+| Negotiating | Requires your judgment |
+| Financial decisions | Too high stakes |
+| Strategic planning | Needs your expertise |
+
+---
+
+## Constraints: What Should Your EA NOT Do?
+
+This is the most important part of agent design. Clear boundaries prevent disasters.
+
+### Your EA Should NOT:
+
+1. **Send anything** - Always draft, never send
+2. **Make commitments** - "I'll check with [you]" not "Yes, we can do that"
+3. **Access sensitive files** - Financial docs, contracts without permission
+4. **Handle conflict** - Complaints or disputes escalate to you
+
+### Escalation Triggers
+
+Train your EA to flag these:
+
+```markdown
+## Escalate to Me When:
+- Email involves money or contracts
+- Someone seems upset or is complaining
+- You're unsure about the relationship context
+- Strategic positioning is needed
+- Request is outside normal scope
+```
+
+**Exercise:** Write your escalation triggers. What situations need your direct attention?
+
+---
+
+## Communication: How Should Your EA Work With You?
+
+### Output Preferences
+
+Tell your EA how you like to receive work:
+
+```markdown
+## How I Want Output:
+
+### Emails
+- Give me 2-3 versions (short, medium, detailed)
+- Note the tone you chose and why
+- Flag anything that needs my review
+
+### Research
+- Lead with key takeaways (3 bullet points)
+- Details below for reference
+- Always cite sources
+
+### Meeting Prep
+- One-page max
+- Focus on what I need to know, not everything
+- Include 3 questions I should ask
+```
+
+### Feedback Loop
+
+Your EA gets better when you tell it what worked:
+
+```
+Good: "The short version was perfect, use that length for [client] in the future"
+Good: "Too formal - [client] is casual, first-name basis"
+Good: "Add this to my CLAUDE.md: always mention the podcast when..."
+```
+
+---
+
+## Exercise: Design Your EA
+
+Open your starter repo and complete these steps:
+
+### Step 1: Update CLAUDE.md
+
+Add an EA Context section with:
+- 3-5 key relationships
+- Common topics you discuss
+- Your scheduling preferences
+
+### Step 2: Review the EA README
+
+Open `/agents/executive-assistant/README.md` and:
+- Read through the instructions
+- Modify anything that doesn't fit your style
+- Add any missing context
+
+### Step 3: Test the Context
+
+In Claude Code:
+```
+Read my CLAUDE.md and the EA README. Then describe how you would
+draft an email to a potential coaching client who reached out
+after hearing my podcast.
+```
+
+Does Claude understand your context? If not, what's missing?
+
+---
+
+## Key Takeaways
+
+1. **Context is everything** - The more your EA knows, the less you explain
+2. **Constraints prevent disasters** - Clear boundaries = safe delegation
+3. **Start conservative** - You can expand capabilities later
+4. **Iterate based on feedback** - Your EA improves as you use it
+
+---
+
+[**Next: Email Workflows →**](./email-workflows)
