@@ -16,6 +16,53 @@ When you open Claude Code in a folder containing CLAUDE.md, it reads it first - 
 
 ---
 
+## Where CLAUDE.md Lives
+
+CLAUDE.md can live in three locations, and Claude Code reads all of them:
+
+### 1. Global (All Projects)
+```
+~/.claude/CLAUDE.md
+```
+This applies to **every project** on your machine. Put things here that are always true about you and your business - your name, company, communication preferences, key URLs.
+
+### 2. Project Root (One Project)
+```
+your-project/CLAUDE.md
+```
+This applies to a **specific project**. Put project-specific context here - what this codebase does, key files, conventions for this project.
+
+### 3. Subdirectories (Specific Context)
+```
+your-project/agents/executive-assistant/CLAUDE.md
+```
+This applies when you're **working in that folder**. Use this for agent-specific instructions or context that only matters in certain parts of your project.
+
+### How They Stack
+
+Claude Code reads from general → specific:
+
+```
+~/.claude/CLAUDE.md          ← Read first (global context)
+   ↓
+your-project/CLAUDE.md       ← Read second (project context)
+   ↓
+your-project/agents/CLAUDE.md ← Read third (folder context)
+```
+
+All three are combined. More specific files add to (or override) more general ones.
+
+### Recommendation for This Course
+
+Start with just two:
+
+1. **Global** (`~/.claude/CLAUDE.md`) - Your business identity, voice, and preferences
+2. **Project** (`solopreneur-ai-staff/CLAUDE.md`) - Your AI staff setup and agent instructions
+
+You can add subdirectory files later as your system grows.
+
+---
+
 ## Why This Matters
 
 Without CLAUDE.md:
