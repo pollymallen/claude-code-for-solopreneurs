@@ -73,9 +73,30 @@ Analyze my content-calendar.md and identify gaps in my content themes
 
 ---
 
+## Useful Built-in Commands
+
+| Command | What it does |
+|---------|--------------|
+| `/help` | Show available commands |
+| `/clear` | Clear conversation history |
+| `/compact` | Summarize conversation to save context |
+| `/usage` | Show token usage for session |
+
+### About `/compact`
+
+Claude Code has a limited "context window" - the amount of conversation it can remember at once. As you work on longer tasks, you'll eventually approach this limit.
+
+**When it happens automatically:** Claude Code will auto-compact when you're running low on context space. You'll see a message that the conversation is being summarized.
+
+**When to use it manually:** If you've finished one task and are starting something unrelated, running `/compact` clears out the details while keeping the key information. This gives you more room for the new task.
+
+For the full list of built-in commands, see the [official slash commands documentation](https://code.claude.com/docs/en/slash-commands).
+
+---
+
 ## Custom Commands (Slash Commands)
 
-You can create shortcuts for common tasks. These live in `.claude/commands/`.
+You can create your own shortcuts for common tasks. These live in `.claude/commands/`.
 
 ### Example: Email drafting command
 
@@ -97,17 +118,6 @@ Now you can use:
 ```
 
 We'll build custom commands for each agent in later modules.
-
----
-
-## Useful Built-in Commands
-
-| Command | What it does |
-|---------|--------------|
-| `/help` | Show available commands |
-| `/clear` | Clear conversation history |
-| `/compact` | Summarize conversation to save context |
-| `/usage` | Show token usage for session |
 
 ---
 
