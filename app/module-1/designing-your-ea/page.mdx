@@ -8,60 +8,41 @@ Before building, let's establish what makes a good Executive Assistant agent.
 
 Every agent needs six things:
 
-| Component | Question to Answer |
-|-----------|-------------------|
-| **Context** | What does this agent need to know? |
-| **Capabilities** | What tasks can it handle? |
-| **Tools** | What can it use to take action? |
-| **Memory** | How does it remember things? |
-| **Constraints** | What should it NOT do? |
-| **Communication** | How should it interact with you? |
+| Component | Where It Lives |
+|-----------|----------------|
+| **Context** | `CLAUDE.md` - Your business info, brand voice |
+| **Capabilities** | `agents/executive-assistant/README.md` - What the EA does |
+| **Tools** | Commands in `.claude/commands/` |
+| **Memory** | Files the EA reads/writes (templates, drafts) |
+| **Constraints** | `agents/executive-assistant/README.md` - What NOT to do |
+| **Communication** | `agents/executive-assistant/README.md` - Output preferences |
 
-In V0, you'll define most of this manually. In V1, your EA will discover much of it from your actual email and calendar.
+In V0, you'll customize these manually. In V1, your EA will discover much of this from your actual email.
 
 ---
 
-## V0: What You Need to Provide
+## What Goes Where
 
-For the manual version, you need to give your EA:
+### CLAUDE.md (Business Context)
 
-### 1. Business Context (CLAUDE.md)
-
-Your EA reads CLAUDE.md at the start of every session. Include:
+This is your business identity. All agents read it. Include:
 - What your business does
 - Your brand voice and tone
-- Key facts (offers, pricing if relevant, platforms you use)
+- Key facts (offers, platforms you use)
 
-### 2. Communication Style
+**Don't put EA-specific instructions here.** That goes in the EA's own README.
 
-How do you typically communicate?
+### agents/executive-assistant/README.md (EA Instructions)
 
-```markdown
-## Communication Style
-
-**Tone:** Professional but warm
-**Email length:** Short and direct (2-3 paragraphs max)
-**Signature:** "Best, [Name]"
-**Avoid:** Exclamation points, "just following up"
-```
-
-### 3. Key Relationships (Optional for V0)
-
-Who are your most important contacts?
-
-```markdown
-## Key Relationships
-
-- Sarah Chen - VIP coaching client, very casual
-- Alex Rivera - Referral partner, professional
-- [Vendor] - Keep formal
-```
-
-> **Note:** In V1, your EA will discover your frequent contacts automatically and ask you to classify them.
+This is where your EA learns how to behave:
+- How to draft emails
+- How to format research
+- What to escalate
+- Where to save files
 
 ---
 
-## EA Capabilities (V0)
+## V0 Capabilities
 
 Your V0 EA handles reactive tasks:
 
@@ -83,57 +64,106 @@ These require V1 (MCP connections).
 
 ---
 
-## Constraints: What Your EA Should NOT Do
+## Exercise: Customize Your EA
 
-This is the most important part. Clear boundaries prevent disasters.
+Let's make this real. Open your terminal and follow along.
 
-### Your EA Should NOT:
+### Step 1: Navigate to Your Repo
 
-1. **Send anything** - Always draft, never send
-2. **Make commitments** - "I'll check with [you]" not "Yes, we can do that"
-3. **Handle conflict** - Complaints or disputes escalate to you
-4. **Access sensitive info** - Financial docs, contracts without permission
-
-### Escalation Triggers
-
-```markdown
-## Escalate to Me When:
-- Email involves money or contracts
-- Someone seems upset or complaining
-- Unsure about the relationship context
-- Strategic positioning is needed
+```bash
+cd ~/Documents/your-repo-name  # wherever you cloned it
 ```
 
----
+If you haven't created your repo yet, go back to [Installation](/module-0/installation) and complete Step 4.
 
-## Exercise: Minimum Viable Context
+### Step 2: Open the EA README
 
-To get your V0 EA working, add this to your CLAUDE.md:
+The file you'll customize is:
 
-```markdown
-## EA Context
-
-### Communication Style
-Tone: [Professional/Casual/etc.]
-Email length preference: [Short/Medium/Detailed]
-Sign-off: [How you end emails]
-
-### Escalate to Me When
-- [Situation 1]
-- [Situation 2]
-- [Situation 3]
+```
+agents/executive-assistant/README.md
 ```
 
-That's enough to start. You'll refine as you use it.
+Open it in your editor. You'll see sections for:
+- What this agent does
+- Agent instructions
+- Boundaries
+- Example prompts
+
+### Step 3: Customize the Boundaries
+
+Find the "Boundaries" section. Update the escalation triggers for your business:
+
+```markdown
+**Escalate to you when:**
+- [What situations need your personal attention?]
+- [What topics are too sensitive for the EA?]
+- [What relationships require your direct involvement?]
+```
+
+**Example for a coach:**
+```markdown
+**Escalate to you when:**
+- Email involves pricing or payment issues
+- Someone mentions refund or cancellation
+- VIP client (anyone in your program) has a concern
+- Media or partnership inquiries
+```
+
+### Step 4: Set Your Output Preferences
+
+Find the "Email Drafting Rules" section. Adjust to match how you write:
+
+```markdown
+### Email Drafting Rules
+
+1. **Provide 2 versions** - Short and detailed (I'll pick one)
+2. **Tone:** Professional but warm, no exclamation points
+3. **Length:** Keep it short - 2-3 paragraphs max
+4. **Sign-off:** "Best, [Your Name]"
+```
+
+### Step 5: Add Memory (Where to Save Files)
+
+At the bottom of the README, update the "Files This Agent Uses" section:
+
+```markdown
+## Files This Agent Uses
+
+| File | Purpose |
+|------|---------|
+| `/CLAUDE.md` | Business context, brand voice |
+| `/drafts/` | Save email drafts here for my review |
+| `/research/` | Save research briefs here |
+| `/templates/email-response.md` | Email templates |
+```
+
+### Step 6: Test It
+
+Start Claude Code in your repo:
+
+```bash
+claude
+```
+
+Then try:
+
+```
+Read the EA README at agents/executive-assistant/README.md.
+Then draft a follow-up email to a potential client named Sarah
+who attended my free masterclass last week.
+```
+
+Does the output match your preferences? If not, adjust the README.
 
 ---
 
 ## Key Takeaways
 
-1. **V0 is manual but valuable** - You provide context, EA saves you time
-2. **Start minimal** - You can add more context later
-3. **Constraints matter most** - Clear boundaries prevent mistakes
-4. **V1 will be easier** - EA discovers context automatically
+1. **CLAUDE.md = business context** - Who you are, brand voice
+2. **EA README = agent instructions** - How the EA should behave
+3. **Start with boundaries** - What NOT to do is most important
+4. **Test and refine** - The EA improves as you clarify instructions
 
 ---
 
