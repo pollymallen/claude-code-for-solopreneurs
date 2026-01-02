@@ -1,213 +1,145 @@
 # Email Drafting (V0)
 
-Email is the killer app for your EA. In V0, you'll paste emails and get draft replies. In V1, your EA will read your inbox directly.
+Your EA's first superpower: drafting emails that sound like you.
 
 ---
 
-## The Email Problem
+## Why Not Just Use ChatGPT?
 
-As a solopreneur, you probably:
-- Spend 1-2 hours daily on email
-- Write similar responses repeatedly
-- Procrastinate on emails that need thought
-- Wish you had someone to draft for you
+Fair question. Here's the difference:
 
-Your EA solves this. Not by sending emails (too risky), but by having drafts ready for your review.
+| ChatGPT | Claude Code EA |
+|---------|----------------|
+| Re-explain your business every time | CLAUDE.md is always loaded |
+| Copy-paste the output | Saves to your local files |
+| Remember to ask for "3 versions" | `/ea-email` always does this |
+| Generic AI voice | Your brand voice is baked in |
+| Starts fresh each chat | Context compounds over time |
+
+The V0 EA isn't magic - it's **convenience that compounds**. Every time you use it, you're working with your context, not rebuilding it.
 
 ---
 
-## Email Workflow #1: The Follow-Up
+## The Workflow
 
-The most common email you write: following up after a conversation.
+Here's exactly how to use your EA for email drafting:
 
-### Without EA
-1. Remember you need to follow up
-2. Open email, stare at blank screen
-3. Try to remember what you discussed
-4. Write email from scratch
-5. Second-guess your wording
-6. Finally send (30 min later)
+### Step 1: Open Terminal in Your Repo
 
-### With EA
+```bash
+cd ~/Documents/your-repo-name
+```
+
+This is where your CLAUDE.md lives. Claude Code reads it automatically when you start.
+
+### Step 2: Start Claude Code
+
+```bash
+claude
+```
+
+You'll see Claude Code start up. Your CLAUDE.md is now loaded.
+
+### Step 3: Use the Email Command
+
 ```
 /ea-email
-Recipient: Sarah Chen (discovery call yesterday, interested in coaching)
-Purpose: Follow up, share next steps for working together
+Recipient: Sarah Chen (attended my masterclass last week)
+Purpose: Follow up, see if she's interested in coaching
 ```
 
-**Output:** 2-3 draft versions ready to review and send in 2 minutes.
+### Step 4: Review the Output
+
+You'll get 3 versions (short, medium, detailed) plus a subject line. Pick one, edit if needed, send from your email client.
+
+That's it. No re-explaining your business. No asking for multiple versions. The command handles it.
 
 ---
 
-## Exercise: Your First Email Draft
+## Example: Real Email Drafts
 
-Try this now in Claude Code:
+### Follow-up After a Call
 
 ```
-Read /agents/executive-assistant/README.md and /CLAUDE.md.
-
-Then draft a follow-up email:
-- Recipient: [Someone you actually need to email]
-- Context: [Brief description of your last interaction]
-- Purpose: [What you want to happen next]
-
-Give me 3 versions: short, medium, and detailed.
+/ea-email
+Recipient: Alex Rivera (discovery call yesterday, interested in Blueprint)
+Purpose: Follow up with next steps and proposal
 ```
 
-**Review the output:**
-- Does it sound like you?
-- Is the tone right for this relationship?
-- What would you change?
+Your EA knows "Blueprint" is your 8-week program (from CLAUDE.md) and drafts accordingly.
 
-Tell Claude what to adjust, then update your CLAUDE.md with any patterns you notice.
+### Cold Inquiry Response
 
----
-
-## Email Workflow #2: The Cold Response
-
-Someone reaches out cold - a potential client, podcast pitch, partnership inquiry.
-
-### The Challenge
-- You don't know them
-- You need to qualify quickly
-- Wrong tone = lost opportunity
-
-### EA Approach
 ```
 /ea-email
 Recipient: Unknown - cold inbound from website contact form
-Context: They asked about coaching, mentioned struggling with scaling
-Purpose: Qualify interest, suggest discovery call if good fit
+Purpose: They asked about coaching, qualify and suggest a call
+Context: They mentioned struggling with AI adoption at their company
 ```
 
-Your EA will:
-1. Keep it professional but warm
-2. Acknowledge their specific pain point
-3. Suggest a clear next step
-4. Not over-commit or under-commit
-
----
-
-## Email Workflow #3: The Difficult Response
-
-Emails you've been avoiding because they're tricky:
-- Saying no to something
-- Addressing a complaint
-- Navigating a sensitive topic
-
-### EA Approach
-
-Your EA won't handle these alone, but it can give you a starting point:
+### Tricky Situation
 
 ```
 /ea-email
-Recipient: [Client name] - existing client, good relationship
-Context: They asked for a discount on renewal
-Purpose: Decline gracefully while maintaining relationship
-Note: This is sensitive, I'll heavily edit
-
-Give me a draft that:
-- Acknowledges the ask warmly
-- Explains why I can't discount
-- Offers an alternative if possible
-- Keeps the relationship strong
+Recipient: Current client (good relationship)
+Purpose: They asked for a discount on renewal, need to decline gracefully
+Note: This is sensitive, I'll edit heavily
 ```
 
-**Key:** You're still doing the thinking. The EA handles the first draft so you're not staring at a blank page.
+Your EA will flag this for extra review and draft something you can refine.
 
 ---
 
-## Building Your Email Patterns
+## When to Edit vs. Send As-Is
 
-Over time, you'll notice patterns. Capture them.
+**Usually send as-is:**
+- Routine follow-ups
+- Simple scheduling
+- Thank-you notes
+- Information requests
 
-### Pattern: Discovery Call Follow-Up
+**Always edit first:**
+- Anything involving money
+- Complaints or sensitive topics
+- New or fragile relationships
+- Strategic positioning
 
-```markdown
-# In your CLAUDE.md or a templates file:
+The EA flags sensitive emails automatically.
 
-## Email Pattern: Post-Discovery Call
+---
 
-Structure:
-1. Thank them for their time
-2. Recap the main pain point they shared
-3. Briefly state how I can help
-4. Clear next step (proposal, second call, etc.)
-5. Warm close
+## Exercise: Draft Your First Email
 
-Tone: Confident but not pushy
-Length: Short - they're busy
+Open your terminal and try this now:
+
+```bash
+cd ~/Documents/your-repo-name  # your repo folder
+claude
 ```
 
-Now your EA knows exactly how to draft this type of email.
+Then:
 
----
+```
+/ea-email
+Recipient: [Someone you actually need to email this week]
+Purpose: [What you need to say]
+```
 
-## Exercise: Map Your Email Patterns
+Review the output:
+- Does it sound like you?
+- Is the tone right?
+- What would you change?
 
-List your 5 most common email types:
-
-1. _______________
-2. _______________
-3. _______________
-4. _______________
-5. _______________
-
-For each one, note:
-- Who receives this email?
-- What's the typical structure?
-- What tone works best?
-- What's the desired outcome?
-
-Add at least one pattern to your CLAUDE.md or create a file in `/templates/`.
-
----
-
-## Pro Tips for Email Workflows
-
-### 1. Give Relationship Context
-
-❌ "Email to John"
-✅ "Email to John - my accountability partner, we've worked together 2 years, very casual"
-
-### 2. Specify the Outcome
-
-❌ "Follow up email"
-✅ "Follow up email - goal is to schedule a call this week"
-
-### 3. Include Relevant History
-
-❌ "Respond to their question"
-✅ "Respond to their question about pricing - they mentioned budget is tight in our last call"
-
-### 4. Request Variations
-
-❌ "Write an email"
-✅ "Write 3 versions - I'll pick the best one"
-
----
-
-## When NOT to Use EA for Email
-
-Your EA drafts. You decide if the draft is right.
-
-**Always review carefully when:**
-- Money or contracts involved
-- Relationship is new or fragile
-- Topic is emotionally charged
-- You're making a commitment
-
-**Your EA flags these automatically** if you've set up proper escalation triggers.
+If something's off, the fix is in your CLAUDE.md (brand voice) or the command itself.
 
 ---
 
 ## Key Takeaways
 
-1. **EA drafts, you send** - Never remove yourself from the loop
-2. **Context = quality** - More context = better drafts
-3. **Patterns compound** - Each email pattern you document makes the next one better
-4. **Difficult ≠ impossible** - EA can start hard emails, you finish them
+1. **Context is always loaded** - That's the advantage over ChatGPT
+2. **Commands embed your preferences** - 3 versions, your tone, every time
+3. **Start using it for real emails** - The value is in daily use, not setup
 
 ---
 
-[**Next: Research Workflows →**](/module-1/research-workflows)
+[**Next: Research →**](/module-1/research-workflows)
