@@ -66,8 +66,45 @@ What can this agent *use* to take action?
 - Shortcuts you create for common workflows
 - The `/ea-email` and `/cs-respond` commands we build in this course
 
-### 4. Boundaries
+### 4. Memory
+How does this agent remember things?
+
+**Session memory:**
+- What you've discussed in the current conversation
+- Lost when you exit, summarized when you run `/compact`
+
+**Persistent memory (CLAUDE.md):**
+- Always loaded when a session starts
+- Your business context, voice, preferences
+
+**Working memory (files):**
+- Agents can read and write files to "remember" things
+- Example: The FAQ knowledge base, notes, logs, previous outputs
+- This is how knowledge compounds over time
+
+### 5. Boundaries
 What does this agent NOT do? When should it escalate to you?
+
+---
+
+## Proactive Agents and "Always On"
+
+Here's an important limitation to understand: **Claude Code is reactive by default.** It runs when you invoke it. It's not watching your inbox in the background.
+
+Think of it like a capable employee who works when you call them, not one who's sitting at a desk 24/7.
+
+### Making Agents More Proactive
+
+To approximate "always on" behavior, you need external triggers:
+
+| Approach | How It Works | Example |
+|----------|--------------|---------|
+| **Scheduled scripts** | Cron jobs that invoke Claude Code periodically | "Every morning at 8am, check my inbox" |
+| **Automation platforms** | Tools like n8n, Zapier, or Make trigger Claude on events | "When a form is submitted, process it" |
+| **Hooks** | Claude Code runs scripts in response to certain events | "After every file edit, run linting" |
+| **GitHub Actions** | Trigger Claude on code/repo events | "On PR, review the code" |
+
+We'll cover these patterns in later modules as they become relevant. For now, understand that your agents work *when invoked* - the power is in how fast and consistently they work once called.
 
 ---
 
@@ -105,6 +142,13 @@ Built-in: Read files, search web, run commands
 Local: pandoc (for document conversion)
 External: Gmail MCP (to actually send emails)
 Commands: /ea-email, /ea-research, /ea-prep
+```
+
+### Memory
+```markdown
+Persistent: CLAUDE.md (business context, voice)
+Working: /drafts folder (email drafts for review)
+Working: /research folder (saved research briefs)
 ```
 
 ### Boundaries
@@ -182,7 +226,8 @@ You now understand:
 - ✅ How to install and authenticate
 - ✅ How CLAUDE.md creates persistent memory
 - ✅ Basic commands and workflows
-- ✅ The agent mental model
+- ✅ The agent mental model: context, instructions, tools, memory, boundaries
+- ✅ What agents can and can't do (reactive by default, proactive with triggers)
 
 ---
 
