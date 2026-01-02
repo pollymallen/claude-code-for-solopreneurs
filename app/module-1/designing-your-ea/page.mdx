@@ -6,12 +6,14 @@ Before we write any commands, let's think through what makes a good Executive As
 
 ## The Design Framework
 
-Every agent needs four things:
+Every agent needs six things:
 
 | Component | Question to Answer |
 |-----------|-------------------|
 | **Context** | What does this agent need to know? |
 | **Capabilities** | What tasks can it handle? |
+| **Tools** | What can it use to take action? |
+| **Memory** | How does it remember things? |
 | **Constraints** | What should it NOT do? |
 | **Communication** | How should it interact with you? |
 
@@ -78,6 +80,60 @@ Start with tasks that are:
 | Negotiating | Requires your judgment |
 | Financial decisions | Too high stakes |
 | Strategic planning | Needs your expertise |
+
+---
+
+## Tools: What Can Your EA Use?
+
+Your EA can use different types of tools to get work done:
+
+### Built-in Capabilities
+Things Claude Code can do natively:
+- Read and write files
+- Search the web for research
+- Run terminal commands
+
+### Custom Commands
+Shortcuts we'll build in this module:
+- `/ea-email` - Draft emails quickly
+- `/ea-research` - Get structured research briefs
+- `/ea-meeting-prep` - Prepare for meetings
+
+### Local Programs (Optional)
+Software on your computer Claude can run:
+- Document conversion (Word → PDF)
+- File organization
+
+### External Connections (Future)
+As you advance, you can connect your EA to:
+- Email (actually send drafts)
+- Calendar (check availability)
+- Project management tools
+
+For now, we'll focus on built-in capabilities and custom commands. External connections require MCP setup, which we'll cover in later modules.
+
+---
+
+## Memory: How Does Your EA Remember?
+
+Your EA has three types of memory:
+
+### Persistent Memory (CLAUDE.md)
+Always available, every session:
+- Your business context
+- Brand voice
+- Key relationships
+
+### Working Memory (Files)
+Information your EA saves for later:
+- `/drafts/` - Email drafts for your review
+- `/research/` - Research briefs you might reference again
+- `/templates/` - Patterns that work
+
+### Session Memory
+What you've discussed in the current conversation. Lost when you exit, summarized on `/compact`.
+
+**Pro tip:** Have your EA save important outputs to files. This builds a library you can reference later.
 
 ---
 
@@ -180,9 +236,11 @@ Does Claude understand your context? If not, what's missing?
 ## Key Takeaways
 
 1. **Context is everything** - The more your EA knows, the less you explain
-2. **Constraints prevent disasters** - Clear boundaries = safe delegation
-3. **Start conservative** - You can expand capabilities later
-4. **Iterate based on feedback** - Your EA improves as you use it
+2. **Tools expand capabilities** - Start with built-in, add more as needed
+3. **Memory compounds** - Save outputs to files for future reference
+4. **Constraints prevent disasters** - Clear boundaries = safe delegation
+5. **Start conservative** - You can expand capabilities later
+6. **Iterate based on feedback** - Your EA improves as you use it
 
 ---
 
