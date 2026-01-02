@@ -1,0 +1,188 @@
+# Support Workflows
+
+Support is where most solopreneurs feel the squeeze. You want to respond quickly, but thoughtful responses take time. Your CS agent solves this.
+
+---
+
+## The Support Problem
+
+Without a system:
+- You dread opening your inbox
+- Simple questions take 10 minutes to answer
+- You forget to follow up
+- Quality varies based on your mood/energy
+
+With your CS agent:
+- Drafts ready in seconds
+- Consistent quality every time
+- Patterns get captured for next time
+- You just review and send
+
+---
+
+## The Response Framework
+
+Every support response follows this structure:
+
+```
+ACKNOWLEDGE → ANSWER → EXPAND → NEXT STEP
+```
+
+### 1. Acknowledge
+Show you understand their situation. This isn't filler - it builds trust.
+
+❌ "Thanks for reaching out."
+✅ "I can see how that would be confusing - the course navigation isn't obvious at first."
+
+### 2. Answer
+Address their actual question directly. Don't bury the answer.
+
+❌ [Three paragraphs before getting to the point]
+✅ "Your recordings are in Dashboard → Past Sessions, labeled by date."
+
+### 3. Expand
+Anticipate what they'll ask next. Save them a follow-up email.
+
+"You might also be wondering about downloads - yes, you can download any recording using the button in the bottom right of the video player."
+
+### 4. Next Step
+Every response ends with clarity on what happens next.
+
+"If you still can't find the recording, let me know the session date and I'll send you a direct link."
+
+---
+
+## Exercise: Your First Support Response
+
+Think of a real customer question you've received. Run this in Claude Code:
+
+```
+/cs-respond
+Customer question: [Paste their actual question]
+Context: [New customer? Long-time client? Frustrated?]
+```
+
+Review the output:
+- Does it follow the ACKNOWLEDGE → ANSWER → EXPAND → NEXT STEP framework?
+- Does it sound like you?
+- What would you adjust?
+
+---
+
+## Adapting Tone by Situation
+
+Your CS agent adjusts based on context:
+
+| Situation | Approach |
+|-----------|----------|
+| **Simple question** | Efficient and friendly - respect their time |
+| **Confused customer** | Patient, step-by-step, no jargon |
+| **Frustrated customer** | Lead with empathy, focus on solution |
+| **Happy customer** | Match their energy, be warm |
+
+### Example: Same Question, Different Context
+
+**Question:** "How do I access the bonus materials?"
+
+**New customer (excited):**
+> Welcome! So glad you're diving into the bonuses. You'll find them in your dashboard under "Bonus Resources" - there's some great stuff in there. My favorite is the template pack in section 2. Enjoy exploring!
+
+**Confused customer (multiple emails):**
+> I hear you - the dashboard can be overwhelming at first. Let me walk you through it step by step:
+>
+> 1. Log in at [URL]
+> 2. Click "My Courses" in the top menu
+> 3. Look for "Bonus Resources" in the left sidebar
+>
+> If you're not seeing that sidebar, try refreshing the page. Still stuck? Screenshot what you're seeing and I'll point you in the right direction.
+
+---
+
+## Handling Difficult Situations
+
+Your CS agent knows when to escalate.
+
+### Automatic Flags
+
+These trigger an escalation warning:
+- Customer mentions "refund" or "cancellation"
+- Words like "upset," "frustrated," "disappointed"
+- Billing or payment issues
+- Technical problems agent can't solve
+- Anything involving legal language
+
+### What Escalation Looks Like
+
+```
+---
+⚠️ ESCALATION FLAG
+
+This response is drafted but needs your review because:
+- Customer mentioned "really frustrated"
+- Situation involves account access (billing-adjacent)
+
+Recommendation: Review carefully before sending. Consider
+a more personal response or direct outreach.
+---
+```
+
+You decide what to do - the agent just makes sure you don't miss it.
+
+---
+
+## Building Response Patterns
+
+As you review and edit drafts, notice patterns:
+
+"For this type of question, I always..."
+"When someone mentions X, I like to include..."
+"My clients respond better when I..."
+
+Add these to your CLAUDE.md or CS agent README:
+
+```markdown
+## Response Patterns
+
+### Accessing Course Content
+- Always include the direct URL
+- Mention the "Resources" folder people often miss
+- Offer to send a Loom walkthrough if they're still stuck
+
+### Scheduling Questions
+- Link to Calendly, don't describe the process
+- Mention timezone: "All times shown in your local timezone"
+```
+
+Your agent gets smarter as you teach it.
+
+---
+
+## Pro Tips
+
+### 1. Give Context About the Customer
+
+❌ "Respond to this email"
+✅ "Respond to this email - she's a VIP client, very detail-oriented, been with us 2 years"
+
+### 2. Specify the Outcome You Want
+
+❌ "Answer their question"
+✅ "Answer their question and invite them to the Q&A call on Thursday"
+
+### 3. Reference History
+
+❌ "They asked about pricing"
+✅ "They asked about pricing - this is their second question, first was about time commitment"
+
+---
+
+## Key Takeaways
+
+1. **Framework matters** - ACKNOWLEDGE → ANSWER → EXPAND → NEXT STEP
+2. **Tone adapts** - Same answer, different delivery based on situation
+3. **Escalation is automatic** - Agent flags sensitive issues
+4. **Patterns compound** - Teach your agent what works
+
+---
+
+[**Next: FAQ Management →**](./faq-management)

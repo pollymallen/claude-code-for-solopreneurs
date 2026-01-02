@@ -1,0 +1,196 @@
+# FAQ Management
+
+Every question you answer is an investment. With a FAQ system, you answer once and benefit forever.
+
+---
+
+## The FAQ Advantage
+
+Without FAQ management:
+- Answer the same question 50 times
+- Answers vary in quality
+- New questions start from scratch
+
+With FAQ management:
+- Answer once, reference forever
+- Consistent, polished answers
+- Agent checks FAQ before drafting
+
+---
+
+## How It Works
+
+When you run `/cs-respond`, your CS agent:
+
+1. Checks `/knowledge/faq.md` for existing answers
+2. Uses relevant FAQ content in the response
+3. Suggests adding new entries for repeated questions
+
+Over time, your FAQ becomes a knowledge base that makes every response better.
+
+---
+
+## Creating Great FAQ Entries
+
+### Rule 1: Write Questions as Customers Ask Them
+
+❌ "Course Access and Navigation Procedures"
+✅ "How do I find my course after I buy it?"
+
+❌ "Refund Policy Information"
+✅ "Can I get my money back if it's not for me?"
+
+Use their language, not yours.
+
+### Rule 2: Answer Completely
+
+Don't make them click elsewhere or email again.
+
+❌ "Contact support for details on our refund policy."
+✅ "Yes, you have 14 days to request a full refund, no questions asked. Just email support@example.com with your order number and we'll process it within 48 hours."
+
+### Rule 3: Include the "Why"
+
+Context helps customers understand and reduces follow-ups.
+
+❌ "Recordings are available 24 hours after the session."
+✅ "Recordings are available 24 hours after the session. We add this delay to edit out any technical glitches and add chapter markers so you can jump to specific sections."
+
+### Rule 4: Anticipate Variations
+
+People ask the same thing different ways.
+
+```markdown
+## How do I reset my password?
+
+**Also asked as:**
+- "I forgot my password"
+- "Can't log in"
+- "Locked out of my account"
+- "Password not working"
+```
+
+---
+
+## Exercise: Create Your First FAQ Entry
+
+Think of a question you get at least once a month. Run:
+
+```
+/cs-faq
+Topic: [The question]
+Common variations: [Other ways people ask this]
+Context: [Any relevant details about your answer]
+```
+
+Review the output:
+- Does it sound like how customers would ask?
+- Is the answer complete?
+- Would you send this to someone without editing?
+
+---
+
+## Organizing Your FAQ
+
+Structure matters. Here's the recommended layout:
+
+```markdown
+# FAQ Knowledge Base
+
+## Getting Started
+Questions new customers ask in their first week.
+
+## Account & Access
+Login, password, technical access issues.
+
+## Program/Product Specific
+Questions about your actual offer.
+
+## Billing & Payments
+Money-related questions.
+
+## Technical Issues
+Platform, downloads, compatibility.
+```
+
+---
+
+## The FAQ Workflow
+
+### When You Answer a Question
+
+1. **Check if it's common:** Have you answered this before?
+2. **If yes:** Pull from FAQ, customize slightly
+3. **If no:** Answer fresh, then ask yourself:
+
+"Will I probably get this question again?"
+
+If yes → Create an FAQ entry.
+
+### Adding to Your FAQ
+
+After drafting a response:
+
+```
+This question seems common. Should I add it to the FAQ?
+
+Create an FAQ entry for: "How do I access bonus materials?"
+with the answer I just drafted.
+```
+
+Your CS agent will format it properly and add it to `/knowledge/faq.md`.
+
+---
+
+## FAQ Quality Checklist
+
+Before adding an entry:
+
+- [ ] Question uses customer language (not jargon)
+- [ ] Answer is complete (they don't need to ask follow-up)
+- [ ] "Why" is included when helpful
+- [ ] Common variations are listed
+- [ ] Next steps are clear
+- [ ] Tone matches your brand
+
+---
+
+## Advanced: FAQ Analytics
+
+Track which FAQs get used most:
+
+```markdown
+## How do I reset my password?
+*Used: 23 times | Last used: 2024-01-15*
+```
+
+This tells you:
+- What to feature prominently on your website
+- What problems might need a better solution
+- Where to invest in better UX
+
+---
+
+## Connecting FAQ to Other Agents
+
+Your FAQ isn't just for support. Other agents can use it too:
+
+- **EA Agent:** Reference FAQ when drafting client emails
+- **Content Agent:** Turn common FAQs into content ideas
+- **Onboarding Agent:** Preemptively answer FAQ in welcome sequence
+
+One knowledge base, many uses.
+
+---
+
+## Key Takeaways
+
+1. **Answer once, benefit forever** - FAQ is an investment
+2. **Customer language matters** - Write questions as they ask them
+3. **Complete answers reduce follow-ups** - Include the "why"
+4. **FAQ grows automatically** - Agent suggests new entries
+5. **Knowledge compounds** - Other agents can use your FAQ
+
+---
+
+[**Next: Onboarding Sequences →**](./onboarding-sequences)

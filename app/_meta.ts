@@ -8,5 +8,8 @@ export default {
   },
   'module-1': {
     title: 'Module 1: Executive Assistant'
+  },
+  'module-2': {
+    title: 'Module 2: Customer Success'
   }
 }
