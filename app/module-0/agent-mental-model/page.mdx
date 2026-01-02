@@ -39,13 +39,32 @@ The agent model *actually* delegates. The work gets done whether you're in the l
 Every agent in your AI staff has:
 
 ### 1. Context (CLAUDE.md)
-What does this agent know? Your business, voice, preferences.
+What does this agent know? Your business, voice, preferences, key files.
 
 ### 2. Instructions (Agent README)
-What is this agent *for*? What tasks does it handle?
+What is this agent *for*? What tasks does it handle? How should it approach work?
 
-### 3. Tools (Commands)
-What shortcuts exist for common tasks?
+### 3. Tools
+What can this agent *use* to take action?
+
+**Built-in capabilities:**
+- Read and write files on your computer
+- Run terminal commands
+- Search the web and fetch pages
+
+**Local programs:**
+- Software installed on your computer that Claude can run
+- Example: Convert a Word doc to PDF, resize images, process video
+- Claude can often install what it needs (with your approval)
+
+**External connections (MCP):**
+- Connections to online services like email, Slack, or project management tools
+- Example: Actually send an email, create a task in Asana, post to Slack
+- These require setup (we'll cover this as we build agents that need them)
+
+**Custom commands:**
+- Shortcuts you create for common workflows
+- The `/ea-email` and `/cs-respond` commands we build in this course
 
 ### 4. Boundaries
 What does this agent NOT do? When should it escalate to you?
@@ -81,10 +100,11 @@ You don't:
 ```
 
 ### Tools
-```
-/ea-email - Draft an email
-/ea-research - Research a topic
-/ea-prep - Prepare for a meeting
+```markdown
+Built-in: Read files, search web, run commands
+Local: pandoc (for document conversion)
+External: Gmail MCP (to actually send emails)
+Commands: /ea-email, /ea-research, /ea-prep
 ```
 
 ### Boundaries
