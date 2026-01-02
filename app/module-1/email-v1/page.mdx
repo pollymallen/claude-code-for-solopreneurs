@@ -1,0 +1,191 @@
+# Email V1: Connected Email
+
+In V0, you pasted emails and copied drafts. In V1, your EA connects directly to Gmail.
+
+---
+
+## What V1 Unlocks
+
+| V0 (Manual) | V1 (Connected) |
+|-------------|----------------|
+| Paste email into Claude Code | EA reads your inbox directly |
+| Copy draft, paste into Gmail | Draft appears in Gmail Drafts folder |
+| Tell EA about the sender | EA sees the full thread and context |
+| Decide where to file | EA files based on your rules |
+
+---
+
+## What You Need
+
+1. **Gmail account** - Personal or Google Workspace
+2. **Gmail MCP server** - Connects Claude Code to Gmail
+3. **~15 minutes** - For setup and authorization
+
+---
+
+## Step 1: Install the Gmail MCP Server
+
+MCP (Model Context Protocol) lets Claude Code connect to external services. For Gmail, we'll use the Google Workspace MCP server.
+
+### Install via npm
+
+```bash
+npm install -g @anthropic/mcp-server-google-workspace
+```
+
+### Configure Claude Code
+
+Add the MCP server to your Claude Code config. Open (or create) `~/.claude/mcp_servers.json`:
+
+```json
+{
+  "google-workspace": {
+    "command": "mcp-server-google-workspace",
+    "args": ["--scopes", "gmail.readonly,gmail.modify,gmail.labels"]
+  }
+}
+```
+
+---
+
+## Step 2: Authorize Gmail Access
+
+Start Claude Code:
+
+```bash
+cd ~/Documents/your-repo-name
+claude
+```
+
+The first time you use a Gmail command, Claude Code will:
+1. Open a browser window
+2. Ask you to sign in to Google
+3. Request permission to read and manage your email
+
+Grant access. This is a one-time setup.
+
+---
+
+## Step 3: Discover Your Email Patterns
+
+Now for the magic. Your EA can examine your inbox and learn:
+
+```
+Look at my Gmail inbox and tell me:
+1. Who are my most frequent contacts (top 10)?
+2. What labels/folders do I have?
+3. What patterns do you see in how I organize email?
+```
+
+Your EA will analyze your inbox and propose:
+- Key relationships to remember
+- Filing rules based on your existing folders
+- Patterns it noticed
+
+**Review and refine.** The EA is proposing, you're confirming.
+
+---
+
+## Step 4: Create Filing Rules
+
+Based on what your EA discovered, create an email filing SOP:
+
+```
+Based on what you learned about my inbox, create a filing SOP.
+Save it to /sops/email-filing.md
+
+Include:
+- When to file to each folder
+- What stays in inbox
+- What gets archived
+- What needs my attention flagged
+```
+
+Your EA creates the SOP, you review and adjust.
+
+---
+
+## Step 5: Use Connected Email Commands
+
+Now your email commands work directly with Gmail:
+
+### Read and Draft
+
+```
+/ea-email-v1
+Check my inbox for anything that needs a response today.
+Draft replies and save them to my Gmail Drafts folder.
+```
+
+### Triage Inbox
+
+```
+/ea-inbox-triage
+Review my inbox and:
+- File obvious items (receipts, newsletters, etc.)
+- Flag items that need my attention
+- Leave uncertain items for me to review
+```
+
+---
+
+## The Daily Workflow (V1)
+
+Your new morning routine:
+
+1. **Start Claude Code** in your repo
+2. **Run inbox triage** - EA files what it can, flags what needs you
+3. **Review flagged items** - The stuff that actually needs your brain
+4. **Draft responses** - EA drafts, saves to Gmail Drafts
+5. **Review and send** - You approve and send from Gmail
+
+You go from "drowning in email" to "reviewing what matters."
+
+---
+
+## What V1 Can't Do (Yet)
+
+- **Send emails** - Still requires your approval in Gmail
+- **Handle calendar** - That's a separate MCP connection
+- **Learn from corrections** - V2 adds self-improvement
+
+---
+
+## Troubleshooting
+
+### "MCP server not found"
+
+Make sure you installed globally:
+```bash
+npm install -g @anthropic/mcp-server-google-workspace
+```
+
+### "Authorization failed"
+
+Check that you're signing into the correct Google account. If using Google Workspace, your admin may need to approve the app.
+
+### "Can't access inbox"
+
+The scopes in your config may be wrong. Make sure you have:
+- `gmail.readonly` - To read emails
+- `gmail.modify` - To move/label emails
+- `gmail.labels` - To work with folders
+
+---
+
+## Key Takeaways
+
+1. **MCP connects Claude to your real tools** - Gmail is just the start
+2. **EA discovers your patterns** - Instead of you documenting everything
+3. **Filing becomes automatic** - Based on rules you confirm, not create from scratch
+
+---
+
+## What's Next
+
+With V1, your EA works with your real inbox. In V2, we'll add:
+- Daily Slack summaries
+- Proactive triage (runs automatically)
+- Self-improvement from your edits
+
+[**Next: Research →**](/module-1/research-workflows)
