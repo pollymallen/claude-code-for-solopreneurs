@@ -1,6 +1,6 @@
 # Designing Your EA
 
-Before we write any commands, let's think through what makes a good Executive Assistant agent.
+Before building, let's establish what makes a good Executive Assistant agent.
 
 ---
 
@@ -17,231 +17,124 @@ Every agent needs six things:
 | **Constraints** | What should it NOT do? |
 | **Communication** | How should it interact with you? |
 
-Let's work through each for your EA.
+In V0, you'll define most of this manually. In V1, your EA will discover much of it from your actual email and calendar.
 
 ---
 
-## Context: What Does Your EA Need to Know?
+## V0: What You Need to Provide
 
-Your EA needs access to:
+For the manual version, you need to give your EA:
 
-### From CLAUDE.md (already set up)
-- Your business description
+### 1. Business Context (CLAUDE.md)
+
+Your EA reads CLAUDE.md at the start of every session. Include:
+- What your business does
 - Your brand voice and tone
-- Key facts about your work
+- Key facts (offers, pricing if relevant, platforms you use)
 
-### EA-Specific Context
-Things that help with administrative tasks:
+### 2. Communication Style
+
+How do you typically communicate?
 
 ```markdown
-## EA Context
+## Communication Style
 
-### Key Relationships
-- [Client name] - Current coaching client, high-touch
-- [Partner name] - Referral partner, informal tone
-- [Vendor name] - Keep professional
-
-### Common Topics
-- 12-week coaching program ($5,000)
-- Group program launching Q2
-- Podcast publishes Tuesdays
-
-### Scheduling Preferences
-- No meetings before 10am
-- Discovery calls are 30 min
-- Client sessions are 60 min
+**Tone:** Professional but warm
+**Email length:** Short and direct (2-3 paragraphs max)
+**Signature:** "Best, [Name]"
+**Avoid:** Exclamation points, "just following up"
 ```
 
-**Exercise:** Add an "EA Context" section to your CLAUDE.md with 3-5 key relationships and common topics.
+### 3. Key Relationships (Optional for V0)
+
+Who are your most important contacts?
+
+```markdown
+## Key Relationships
+
+- Sarah Chen - VIP coaching client, very casual
+- Alex Rivera - Referral partner, professional
+- [Vendor] - Keep formal
+```
+
+> **Note:** In V1, your EA will discover your frequent contacts automatically and ask you to classify them.
 
 ---
 
-## Capabilities: What Can Your EA Do?
+## EA Capabilities (V0)
 
-Start with tasks that are:
-- **Repetitive** - You do them often
-- **Low-stakes** - Easy to review and correct
-- **Time-consuming** - Worth automating
+Your V0 EA handles reactive tasks:
 
-### Good EA Tasks
-
-| Task | Why It Works |
+| Task | How It Works |
 |------|--------------|
-| Email drafting | Repetitive, low-risk, easy to review |
-| Research | Time-consuming, structured output |
-| Meeting prep | Repetitive format, high value |
-| Data formatting | Tedious, low judgment needed |
+| **Email drafting** | You paste an email, EA drafts a reply |
+| **Research** | You ask a question, EA researches and summarizes |
+| **Meeting prep** | You provide context, EA creates an agenda |
 
-### Bad EA Tasks (For Now)
+### What V0 Can't Do (Yet)
 
-| Task | Why It Doesn't Work |
-|------|---------------------|
-| Sending emails | No undo if wrong |
-| Negotiating | Requires your judgment |
-| Financial decisions | Too high stakes |
-| Strategic planning | Needs your expertise |
+- Read your inbox directly
+- File or move emails
+- Send anything
+- Access your calendar
+- Work proactively
 
----
-
-## Tools: What Can Your EA Use?
-
-Your EA can use different types of tools to get work done:
-
-### Built-in Capabilities
-Things Claude Code can do natively:
-- Read and write files
-- Search the web for research
-- Run terminal commands
-
-### Custom Commands
-Shortcuts we'll build in this module:
-- `/ea-email` - Draft emails quickly
-- `/ea-research` - Get structured research briefs
-- `/ea-meeting-prep` - Prepare for meetings
-
-### Local Programs (Optional)
-Software on your computer Claude can run:
-- Document conversion (Word → PDF)
-- File organization
-
-### External Connections (Future)
-As you advance, you can connect your EA to:
-- Email (actually send drafts)
-- Calendar (check availability)
-- Project management tools
-
-For now, we'll focus on built-in capabilities and custom commands. External connections require MCP setup, which we'll cover in later modules.
+These require V1 (MCP connections).
 
 ---
 
-## Memory: How Does Your EA Remember?
+## Constraints: What Your EA Should NOT Do
 
-Your EA has three types of memory:
-
-### Persistent Memory (CLAUDE.md)
-Always available, every session:
-- Your business context
-- Brand voice
-- Key relationships
-
-### Working Memory (Files)
-Information your EA saves for later:
-- `/drafts/` - Email drafts for your review
-- `/research/` - Research briefs you might reference again
-- `/templates/` - Patterns that work
-
-### Session Memory
-What you've discussed in the current conversation. Lost when you exit, summarized on `/compact`.
-
-**Pro tip:** Have your EA save important outputs to files. This builds a library you can reference later.
-
----
-
-## Constraints: What Should Your EA NOT Do?
-
-This is the most important part of agent design. Clear boundaries prevent disasters.
+This is the most important part. Clear boundaries prevent disasters.
 
 ### Your EA Should NOT:
 
 1. **Send anything** - Always draft, never send
 2. **Make commitments** - "I'll check with [you]" not "Yes, we can do that"
-3. **Access sensitive files** - Financial docs, contracts without permission
-4. **Handle conflict** - Complaints or disputes escalate to you
+3. **Handle conflict** - Complaints or disputes escalate to you
+4. **Access sensitive info** - Financial docs, contracts without permission
 
 ### Escalation Triggers
-
-Train your EA to flag these:
 
 ```markdown
 ## Escalate to Me When:
 - Email involves money or contracts
-- Someone seems upset or is complaining
-- You're unsure about the relationship context
+- Someone seems upset or complaining
+- Unsure about the relationship context
 - Strategic positioning is needed
-- Request is outside normal scope
 ```
-
-**Exercise:** Write your escalation triggers. What situations need your direct attention?
 
 ---
 
-## Communication: How Should Your EA Work With You?
+## Exercise: Minimum Viable Context
 
-### Output Preferences
-
-Tell your EA how you like to receive work:
+To get your V0 EA working, add this to your CLAUDE.md:
 
 ```markdown
-## How I Want Output:
+## EA Context
 
-### Emails
-- Give me 2-3 versions (short, medium, detailed)
-- Note the tone you chose and why
-- Flag anything that needs my review
+### Communication Style
+Tone: [Professional/Casual/etc.]
+Email length preference: [Short/Medium/Detailed]
+Sign-off: [How you end emails]
 
-### Research
-- Lead with key takeaways (3 bullet points)
-- Details below for reference
-- Always cite sources
-
-### Meeting Prep
-- One-page max
-- Focus on what I need to know, not everything
-- Include 3 questions I should ask
+### Escalate to Me When
+- [Situation 1]
+- [Situation 2]
+- [Situation 3]
 ```
 
-### Feedback Loop
-
-Your EA gets better when you tell it what worked:
-
-```
-Good: "The short version was perfect, use that length for [client] in the future"
-Good: "Too formal - [client] is casual, first-name basis"
-Good: "Add this to my CLAUDE.md: always mention the podcast when..."
-```
-
----
-
-## Exercise: Design Your EA
-
-Open your starter repo and complete these steps:
-
-### Step 1: Update CLAUDE.md
-
-Add an EA Context section with:
-- 3-5 key relationships
-- Common topics you discuss
-- Your scheduling preferences
-
-### Step 2: Review the EA README
-
-Open `/agents/executive-assistant/README.md` and:
-- Read through the instructions
-- Modify anything that doesn't fit your style
-- Add any missing context
-
-### Step 3: Test the Context
-
-In Claude Code:
-```
-Read my CLAUDE.md and the EA README. Then describe how you would
-draft an email to a potential coaching client who reached out
-after hearing my podcast.
-```
-
-Does Claude understand your context? If not, what's missing?
+That's enough to start. You'll refine as you use it.
 
 ---
 
 ## Key Takeaways
 
-1. **Context is everything** - The more your EA knows, the less you explain
-2. **Tools expand capabilities** - Start with built-in, add more as needed
-3. **Memory compounds** - Save outputs to files for future reference
-4. **Constraints prevent disasters** - Clear boundaries = safe delegation
-5. **Start conservative** - You can expand capabilities later
-6. **Iterate based on feedback** - Your EA improves as you use it
+1. **V0 is manual but valuable** - You provide context, EA saves you time
+2. **Start minimal** - You can add more context later
+3. **Constraints matter most** - Clear boundaries prevent mistakes
+4. **V1 will be easier** - EA discovers context automatically
 
 ---
 
-[**Next: Email Workflows →**](/module-1/email-workflows)
+[**Next: Email Drafting →**](/module-1/email-workflows)

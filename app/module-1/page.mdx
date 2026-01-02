@@ -1,30 +1,102 @@
 # Module 1: Executive Assistant Agent
 
-Welcome to your first real agent build. The Executive Assistant is the perfect starting point because:
+Your Executive Assistant is the perfect first agent because:
 
 - **Immediate ROI** - You'll save time on tasks you do daily
-- **Low risk** - Administrative tasks are easy to review and correct
-- **Foundation for others** - Patterns you learn here apply to every agent
+- **Low risk** - Administrative tasks are easy to review
+- **Foundation for others** - Patterns here apply to every agent
+
+---
+
+## The Three Versions of Your EA
+
+Your EA will evolve through three versions. Start where you're comfortable:
+
+### V0: Manual Context (This Module)
+
+**What it does:**
+- Draft email responses (you paste the email, it drafts a reply)
+- Research topics (you ask, it researches and summarizes)
+- Meeting prep (you provide context, it creates an agenda)
+
+**How it works:**
+- You fill out CLAUDE.md with your context
+- You invoke the EA when you need it
+- Completely reactive - you give it info, it produces output
+
+**Why start here:**
+- Understand how Claude Code uses context
+- No technical setup required
+- See immediate value before investing more
+
+**If this feels tedious** - filling out your communication style, key contacts, and preferences manually - you can skip to V1, where your EA discovers this from your actual email.
+
+---
+
+### V1: Connected (Future Module)
+
+**What it does:**
+- Reads your inbox directly
+- Discovers your frequent contacts, folders, and patterns
+- Asks clarifying questions instead of making you fill out templates
+- Files emails, triages your inbox, drafts responses proactively
+
+**How it works:**
+- Connect Gmail via MCP (requires some setup)
+- EA examines your email and proposes what it learned
+- You confirm/adjust, building context collaboratively
+
+**Why upgrade:**
+- No more manual context entry
+- EA works with your real data
+- More proactive, less reactive
+
+---
+
+### V2: Self-Improving (Advanced Module)
+
+**What it does:**
+- Compares its drafts to what you actually sent
+- Notices when you edit heavily vs. send as-is
+- Updates its own instructions based on patterns
+- Gets better over time without manual tweaking
+
+**How it works:**
+- EA monitors sent folder
+- Learns from your edits and preferences
+- Writes insights back to its own config
+
+**Why upgrade:**
+- The EA improves without you doing anything
+- Your preferences are learned, not documented
+- Less maintenance over time
+
+---
+
+## This Module: Building V0
+
+In this module, you'll build the foundational V0 EA:
+
+| Lesson | What You'll Learn |
+|--------|-------------------|
+| [Designing Your EA](/module-1/designing-your-ea) | The framework for agent design |
+| [Email Drafting](/module-1/email-workflows) | Draft emails that sound like you |
+| [Research](/module-1/research-workflows) | Get structured research on demand |
+| [Custom Commands](/module-1/custom-commands) | Build reusable shortcuts |
 
 ---
 
 ## What You'll Build
 
-By the end of this module, you'll have:
+By the end of this module:
 
 | Capability | What It Does |
 |------------|--------------|
-| `/ea-email` command | Draft emails in your voice with one command |
-| `/ea-research` command | Get structured research briefs on any topic |
-| `/ea-meeting-prep` command | Prepare for meetings with context and talking points |
+| `/ea-email` command | Draft emails in your voice |
+| `/ea-research` command | Get structured research briefs |
+| `/ea-meeting-prep` command | Prepare for meetings |
 
 Plus the agent instructions that make Claude behave like a trained assistant.
-
----
-
-## Time to Complete
-
-**~2 hours** for this module
 
 ---
 
@@ -32,37 +104,11 @@ Plus the agent instructions that make Claude behave like a trained assistant.
 
 Before starting:
 - [ ] Module 0 completed
-- [ ] CLAUDE.md filled in with your business context
-- [ ] Starter repo cloned and Claude Code working
-
----
-
-## The EA Philosophy
-
-Your Executive Assistant agent should:
-
-1. **Free up your time** - Handle tasks that don't need your unique expertise
-2. **Maintain your voice** - Sound like you, not like generic AI
-3. **Know its limits** - Escalate what requires your judgment
-4. **Improve over time** - Get better as you refine instructions
-
-Think: *"What would I tell a new hire on their first day?"*
-
-That's what you're building into this agent.
-
----
-
-## Module Structure
-
-| Lesson | What You'll Learn |
-|--------|-------------------|
-| [Designing Your EA](./designing-your-ea) | How to think about agent design |
-| [Email Workflows](./email-workflows) | Draft emails that sound like you |
-| [Research Workflows](./research-workflows) | Get structured research on demand |
-| [Custom Commands](./custom-commands) | Build reusable shortcuts |
+- [ ] Starter repo created (your own copy from template)
+- [ ] Claude Code working
 
 ---
 
 ## Let's Begin
 
-[**Start: Designing Your EA →**](./designing-your-ea)
+[**Start: Designing Your EA →**](/module-1/designing-your-ea)
